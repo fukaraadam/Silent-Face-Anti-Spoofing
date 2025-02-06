@@ -55,15 +55,37 @@ Open source for Android platform deployment code: https://github.com/minivision-
 |Speed/ms|19|23|24|25|90|
 
 ## Repo
-### Install dependency Library  
+
+### Clone
+
+```bash
+git clone https://github.com/fukaraadam/Silent-Face-Anti-Spoofing
+cd Silent-Face-Anti-Spoofing
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
 ```
+
+### Install dependency Library
+
+To install without CUDA (Preferred):
+
+```bash
+pip install torch torchvision easydict tqdm tensorboardX opencv_python
+# or
 pip install -r requirements.txt
 ```
-### Clone
+
+To install with CUDA:
+
+```bash
+# default pip url installs CPU only version of torch
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+pip install easydict tqdm tensorboardX opencv_python
+# or
+pip install -r requirements.txt
 ```
-git clone https://github.com/minivision-ai/Silent-Face-Anti-Spoofing  
-cd Silent-Face-Anti-Spoofing
-```  
+
 ### Data Preprocessing
 1.The training set is divided into three categories, and the pictures of the same category are put into a folder;  
 2.Due to the multi-scale model fusion method, the original image and different patch are used to train the model, so the data is divided into the original map and the patch based on the Original picture;  
